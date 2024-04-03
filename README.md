@@ -1,4 +1,5 @@
-#Real-Time Stock Exchange Angular App
+# Real-Time Stock Exchange Angular App
+---
 Welcome to the Real-Time Stock Exchange Angular App! This application provides a user interface for viewing  stock data and creating orders.
 
 Features
