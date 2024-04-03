@@ -1,0 +1,13 @@
+.four_zero_four_bg {
+  margin-top: 500px;
+  background-image: url("/assets/Images/404.gif");
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width: 400px) {
+  .four_zero_four_bg {
+    width: 100vw;
+    object-fit: cover;
+  }
+}

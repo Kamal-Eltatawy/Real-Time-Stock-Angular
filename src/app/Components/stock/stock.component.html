@@ -1,0 +1,32 @@
+<div class="container-fluid container-md container-lg">
+  <div class="row">
+    <div class="col">
+      <table class="table table-responsive table-hover">
+        <thead>
+          <tr class="">
+            <th>Symbol</th>
+            <th>Price</th>
+            <th>Name</th>
+            <th class="">Timestamp</th>
+            <th class="" scope="">Order</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="" *ngFor="let stock of Stocks">
+            <td>{{ stock.symbol }}</td>
+            <td>{{ stock.price | currency : "USD" : "symbol" : "1.2-2" }}</td>
+            <td>{{ stock.name }}</td>
+            <td class="timestamp-column">
+              {{ stock.timeStamp | date : "medium" }}
+            </td>
+            <td class="">
+              <a [routerLink]="['/Order', stock.symbol]">
+                <i class="me-md-3 bi bi-pencil-square text-warning"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,160 @@
+<div class="container">
+  <h2>Register</h2>
+  <form [formGroup]="ReactiveForm" (ngSubmit)="Register($event)">
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        formControlName="FirstName"
+      />
+      <div
+        *ngIf="
+          ReactiveForm.get('FirstName')?.invalid &&
+          (ReactiveForm.get('FirstName')?.dirty ||
+            ReactiveForm.get('FirstName')?.touched)
+        "
+        class="text-danger"
+      >
+        First Name is required
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        formControlName="LastName"
+      />
+      <div
+        *ngIf="
+          ReactiveForm.get('LastName')?.invalid &&
+          (ReactiveForm.get('LastName')?.dirty ||
+            ReactiveForm.get('LastName')?.touched)
+        "
+        class="text-danger"
+      >
+        Last Name is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="Email"
+      />
+      <div
+        *ngIf="getEmail.invalid && (getEmail.dirty || getEmail.touched)"
+        class="text-danger"
+      >
+        <div *ngIf="getEmail.errors?.required">Email is required</div>
+        <div *ngIf="getEmail.errors?.email">Invalid email format</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        formControlName="Username"
+      />
+      <div
+        *ngIf="
+          getUsername.invalid && (getUsername.dirty || getUsername.touched)
+        "
+        class="text-danger"
+      >
+        Username is required
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <div class="input-group">
+        <input
+          type="password"
+          class="form-control"
+          id="password-input"
+          formControlName="Password"
+        />
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="togglePasswordVisibility()"
+        >
+          <i class="bi bi-eye"></i>
+        </button>
+      </div>
+      <div
+        *ngIf="
+          getPassword.invalid && (getPassword.dirty || getPassword.touched)
+        "
+        class="text-danger"
+      >
+        <div *ngIf="getPassword.errors?.required">Password is required</div>
+        <div *ngIf="getPassword.errors?.minlength">
+          Password must be at least 6 characters
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="confirmPassword" class="form-label">Confirm Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="confirmPassword"
+        formControlName="ConfirmPassword"
+      />
+      <div
+        *ngIf="
+          getConfirmPassword.invalid &&
+          (getConfirmPassword.dirty || getConfirmPassword.touched)
+        "
+        class="text-danger"
+      >
+        <div *ngIf="getConfirmPassword.errors?.required">
+          Confirm Password is required
+        </div>
+        <div *ngIf="getConfirmPassword.errors?.minlength">
+          Confirm Password must be at least 6 characters
+        </div>
+        <div *ngIf="getConfirmPassword.value !== getPassword.value">
+          Passwords do not match
+        </div>
+      </div>
+      <div class="mb-3 mt-1 d-flex" *ngFor="let role of rolesList">
+        <input
+          class="form-check me-1"
+          type="checkbox"
+          [value]="role"
+          (change)="toggleRoleSelection(role)"
+        />
+        <label class="mt-1">
+          {{ role }}
+        </label>
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="ReactiveForm.invalid"
+    >
+      Register
+    </button>
+  </form>
+  <div *ngIf="successMessage" class="alert alert-success mt-3">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessageKeys.length > 0" class="alert alert-danger mt-3">
+    <ul>
+      <ng-container *ngFor="let key of errorMessageKeys">
+        <li *ngFor="let error of errorMessage[key]">{{ error }}</li>
+      </ng-container>
+    </ul>
+  </div>
+</div>

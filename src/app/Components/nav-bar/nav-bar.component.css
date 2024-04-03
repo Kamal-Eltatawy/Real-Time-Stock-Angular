@@ -1,0 +1,29 @@
+.sidebar {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+.navbar-brand {
+  color: rgb(17, 0, 255);
+}
+.nav-link {
+  color: black;
+}
+.sign {
+  background-color: rgba(0, 4, 255, 0.651);
+}
+.nav-link:hover {
+  color: rgb(167, 35, 35);
+}
+.navbar-brand:hover {
+  color: rgb(167, 35, 35);
+}
+@media screen and (max-width: 991px) {
+  .login {
+    flex-direction: column;
+  }
+  .offcanvas-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

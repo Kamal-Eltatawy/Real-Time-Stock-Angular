@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h2>Create Order</h2>
+      <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="type">Type:</label>
+          <select formControlName="type" id="type" class="form-control">
+            <option value="buy">Buy</option>
+            <option value="sell">Sell</option>
+          </select>
+          <ng-container *ngIf="getType.touched">
+            <p *ngIf="getType.hasError('required')" class="text-danger">
+              Required
+            </p>
+          </ng-container>
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity:</label>
+          <input
+            type="number"
+            formControlName="quantity"
+            id="quantity"
+            class="form-control"
+          />
+        </div>
+        <ng-container *ngIf="getquantity.touched">
+          <p *ngIf="getquantity.hasError('required')" class="text-danger">
+            Required
+          </p>
+          <p *ngIf="getquantity.hasError('min')" class="text-danger">
+            Minimun Value is 1
+          </p>
+        </ng-container>
+        <div class="form-group">
+          <label for="symbol">Symbol:</label>
+          <input
+            class="form-control"
+            type="text"
+            readonly
+            id="symbol"
+            value="{{ stockSymbol }}"
+          />
+        </div>
+        <button type="submit" class="btn mt-2 btn-primary">Create Order</button>
+      </form>
+      <div *ngIf="successMessage" class="alert alert-success mt-3">
+        {{ successMessage }}
+      </div>
+      <div *ngIf="errorMessageKeys.length > 0" class="alert alert-danger mt-3">
+        <ul>
+          <ng-container *ngFor="let key of errorMessageKeys">
+            <li *ngFor="let error of errorMessage[key]">{{ error }}</li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

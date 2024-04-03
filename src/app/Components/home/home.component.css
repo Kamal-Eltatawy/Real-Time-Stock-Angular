@@ -1,0 +1,5 @@
+.sliderImage {
+  width: 50%;
+  height: 70vh;
+  object-fit: cover;
+}

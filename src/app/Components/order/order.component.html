@@ -1,0 +1,28 @@
+<div class="container-fluid container-lg">
+  <div class="row">
+    <div class="col">
+      <table class="table table-responsive table-hover">
+        <thead>
+          <tr class="">
+            <th>Stock Name</th>
+            <th>Symbol</th>
+            <th>Quantity</th>
+            <th>Type</th>
+            <th>Time Stamp</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="" *ngFor="let order of orders">
+            <td>{{ order.stockName }}</td>
+            <td>{{ order.symbol }}</td>
+            <td>{{ order.quantity }}</td>
+            <td>{{ order.type }}</td>
+            <td>
+              {{ order.timeStamp | date : "medium" }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
