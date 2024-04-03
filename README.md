@@ -1,11 +1,10 @@
 Real-Time Stock Exchange Angular App
-Welcome to the Real-Time Stock Exchange Angular App! This application provides a user interface for viewing real-time stock data and creating orders.
+Welcome to the Real-Time Stock Exchange Angular App! This application provides a user interface for viewing  stock data and creating orders.
 
 Features
-View live stock data on the dashboard.
+View  stock data on the dashboard.
 Create orders to buy or sell stocks.
 View order history and details.
-Filter orders by status or date.
 Getting Started
 To run the application locally, follow these steps:
 
