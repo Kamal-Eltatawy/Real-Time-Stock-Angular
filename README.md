@@ -1,27 +1,45 @@
-# RealTimeStock
+# Real-Time Stock Exchange Angular App
+---
+Welcome to the Real-Time Stock Exchange Angular App! This application provides a user interface for viewing  stock data and creating orders.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
+Features
+View  stock data on the dashboard.
+Create orders to buy or sell stocks.
+View order history and details.
+Getting Started
+To run the application locally, follow these steps:
 
-## Development server
+Clone the repository:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+bash
+Copy code
+git clone https://github.com/Kamal-Eltatawy/real-time-stock-Angular.git
+Navigate to the project directory:
 
-## Code scaffolding
+bash
+Copy code
+cd real-time-stock-Angular
+Install dependencies:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+bash
+Copy code
+npm install
+Start the development server:
 
-## Build
+bash
+Copy code
+ng serve
+Access the application:
+Open a web browser and go to http://localhost:4200.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Deployment
+To deploy the application to a production environment, follow these steps:
 
-## Running unit tests
+Build the application:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+bash
+Copy code
+ng build --prod
+Deploy the generated files:
+Upload the contents of the dist/ directory to your web server or hosting platform.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
